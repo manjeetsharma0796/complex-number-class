@@ -23,5 +23,13 @@ describe('complex', function() {
 
       deepStrictEqual(result.toString(), '3 + 5i');
     })
+
+    it('Should add two complex number with negative imaginary', function() {
+      const num1 = new Complex(1, 2);
+      const num2 = new Complex(2, -3);
+      const result = num1.add(num2);
+
+      deepStrictEqual(result.toString(), '3 - 1i');
+    })
   })
 });
