@@ -50,4 +50,14 @@ describe('complex', function() {
       deepStrictEqual(result.toString(), '2 - 1i');
     });
   });
+
+  describe('multiply', function() {
+    it('Should multiply two complex number', function() {
+      const num1 = new Complex(1, 2);
+      const num2 = new Complex(2, 3);
+      const result = num1.multiply(num2);
+
+      deepStrictEqual(result.toString(), '-4 + 7i');
+    })
+  })
 });

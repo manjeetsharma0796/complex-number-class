@@ -21,6 +21,13 @@ class Complex {
     return new Complex(real, imaginary);
   };
 
+  multiply(other) {
+    const real = (this.#real * other.#real) - (this.#imaginary * other.#imaginary);
+    const imaginary = (this.#real * other.#imaginary) + (this.#imaginary * other.#real);
+
+    return new Complex(real, imaginary);
+  }
+
   #decideSymbol() {
     return this.#imaginary >= 0 ? '+' : '-';
   }
