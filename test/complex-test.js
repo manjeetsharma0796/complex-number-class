@@ -6,7 +6,7 @@ describe('complex', function() {
   describe('toString', function() {
     const a = new Complex(1, 2);
     it('Should display complex number', function() {
-      deepStrictEqual(a.toString(), '1 + 2')
+      deepStrictEqual(a.toString(), '1 + 2i')
     });
   });
 });

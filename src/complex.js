@@ -15,7 +15,7 @@ class Complex {
   };
 
   toString() {
-    return this.#real + " + " + this.#imaginary;
+    return `${this.#real} + ${this.#imaginary}i`;
   };
 };
 
