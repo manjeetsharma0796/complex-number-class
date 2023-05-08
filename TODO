@@ -1,0 +1,12 @@
+'1 + 2i'
+'1 - 3i'
+
+i want to handle positive negative of imaginary number
+so, we will give name to the symbol between real and complex number
+
+symbol is + , -
+if imaginary is less than zero
+its negative
+
+otherwise it's positive
+

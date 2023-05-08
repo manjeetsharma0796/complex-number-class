@@ -14,8 +14,12 @@ class Complex {
     return new Complex(real, imaginary);
   };
 
+  #decideSymbol() {
+    return this.#imaginary >= 0 ? '+' : '-';
+  }
+
   toString() {
-    return `${this.#real} + ${this.#imaginary}i`;
+    return `${this.#real} ${this.#decideSymbol()} ${Math.abs(this.#imaginary)}i`;
   };
 };
 

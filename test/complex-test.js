@@ -8,6 +8,11 @@ describe('complex', function() {
       const num = new Complex(1, 2);
       deepStrictEqual(num.toString(), '1 + 2i');
     });
+
+    it('Should display complex number with negative imaginary number', function() {
+      const num = new Complex(1, -2);
+      deepStrictEqual(num.toString(), '1 - 2i');
+    });
   });
 
   describe('add', function() {
