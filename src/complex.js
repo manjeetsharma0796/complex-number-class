@@ -29,11 +29,14 @@ class Complex {
   }
 
   #decideSymbol() {
-    return this.#imaginary >= 0 ? '+' : '-';
+    return this.#imaginary < 0 ? '-' : '+';
   }
 
   toString() {
-    return `${this.#real} ${this.#decideSymbol()} ${Math.abs(this.#imaginary)}i`;
+    const imaginaryAbsValue = Math.abs(this.#imaginary);
+    const symbol = this.#decideSymbol();
+
+    return `${this.#real} ${symbol} ${imaginaryAbsValue}i`;
   };
 };
 

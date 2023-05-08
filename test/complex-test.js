@@ -58,6 +58,6 @@ describe('complex', function() {
       const result = num1.multiply(num2);
 
       deepStrictEqual(result.toString(), '-4 + 7i');
-    })
-  })
+    });
+  });
 });
