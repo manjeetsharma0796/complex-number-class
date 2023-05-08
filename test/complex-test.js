@@ -41,5 +41,13 @@ describe('complex', function() {
 
       deepStrictEqual(result.toString(), '2 + 1i');
     });
+
+    it('Should subtract two complex number with a negative imaginary', function() {
+      const num1 = new Complex(3, 2);
+      const num2 = new Complex(1, 3);
+      const result = num1.subtract(num2);
+
+      deepStrictEqual(result.toString(), '2 - 1i');
+    });
   });
 });
