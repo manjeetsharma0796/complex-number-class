@@ -32,4 +32,14 @@ describe('complex', function() {
       deepStrictEqual(result.toString(), '3 - 1i');
     })
   })
+
+  describe('subtract', function() {
+    it('Should subtract two complex number', function() {
+      const num1 = new Complex(3, 2);
+      const num2 = new Complex(1, 1);
+      const result = num1.subtract(num2);
+
+      deepStrictEqual(result.toString(), '2 + 1i');
+    });
+  });
 });

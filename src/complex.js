@@ -14,6 +14,13 @@ class Complex {
     return new Complex(real, imaginary);
   };
 
+  subtract(other) {
+    const real = this.#real - other.#real;
+    const imaginary = this.#imaginary - other.#imaginary;
+
+    return new Complex(real, imaginary);
+  };
+
   #decideSymbol() {
     return this.#imaginary >= 0 ? '+' : '-';
   }
