@@ -2,7 +2,7 @@ class Complex {
   #real
   #imaginary
 
-  constructor (real, imaginary) {
+  constructor(real, imaginary) {
     this.#real = real;
     this.#imaginary = imaginary;
   };
