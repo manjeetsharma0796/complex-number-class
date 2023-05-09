@@ -1,29 +1,33 @@
+const {Real} = require('./real.js');
+const {Imaginary} = require('./imaginary.js');
+
+
 class Complex {
   #real
   #imaginary
 
   constructor(real, imaginary) {
-    this.#real = real;
-    this.#imaginary = imaginary;
+    this.#real = real.value();
+    this.#imaginary = imaginary.value();
   };
 
   add(other) {
-    const real = this.#real + other.#real;
-    const imaginary = this.#imaginary + other.#imaginary;
+    const real = new Real(this.#real + other.#real);
+    const imaginary = new Imaginary(this.#imaginary + other.#imaginary);
 
     return new Complex(real, imaginary);
   };
 
   subtract(other) {
-    const real = this.#real - other.#real;
-    const imaginary = this.#imaginary - other.#imaginary;
+    const real = new Real(this.#real - other.#real);
+    const imaginary = new Imaginary(this.#imaginary - other.#imaginary);
 
     return new Complex(real, imaginary);
   };
 
   multiply(other) {
-    const real = (this.#real * other.#real) - (this.#imaginary * other.#imaginary);
-    const imaginary = (this.#real * other.#imaginary) + (this.#imaginary * other.#real);
+    const real = new Real((this.#real * other.#real) - (this.#imaginary * other.#imaginary));
+    const imaginary = new Imaginary((this.#real * other.#imaginary) + (this.#imaginary * other.#real));
 
     return new Complex(real, imaginary);
   }
