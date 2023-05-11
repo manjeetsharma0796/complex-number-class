@@ -6,7 +6,7 @@ describe('real', function() {
   describe('value', function() {
     it('Should display real number', function() {
       const realNum1 = new Real(2);
-      strictEqual(realNum1.value(), 2);
+      strictEqual(realNum1.getReal(), 2);
     });
   });
 
@@ -16,7 +16,7 @@ describe('real', function() {
       const realNum2 = new Real(3);
       const result = realNum1.add(realNum2);
 
-      strictEqual(result.value(), 5);
+      strictEqual(result.getReal(), 5);
     });
   });
 
@@ -26,7 +26,7 @@ describe('real', function() {
       const realNum2 = new Real(3);
       const result = realNum1.subtract(realNum2);
 
-      strictEqual(result.value(), -1);
+      strictEqual(result.getReal(), -1);
     });
   });
 
@@ -36,7 +36,7 @@ describe('real', function() {
       const realNum2 = new Real(3);
       const result = realNum1.multiply(realNum2);
 
-      strictEqual(result.value(), 6);
+      strictEqual(result.getReal(), 6);
     })
   })
 });

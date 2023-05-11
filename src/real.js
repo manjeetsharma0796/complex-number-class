@@ -1,27 +1,28 @@
 class Real {
   #real
-  constructor(real) {
-    this.#real = real;
-  } 
+
+  constructor(number) {
+    this.#real = number;
+  };
 
   add(other) {
-    const sum = this.#real + other.#real;
+    const sum = this.#real + other.getReal();
     return new Real(sum);
-  }
+  };
 
   subtract(other) {
-    const difference = this.#real - other.#real;
+    const difference = this.#real - other.getReal();
     return new Real(difference);
-  }
+  };
 
   multiply(other) {
-    const product = this.#real * other.#real;
+    const product = this.#real * other.getReal();
     return new Real(product);
-  }
+  };
 
-  value() {
+  getReal() {
     return this.#real;
-  }
+  };
 };
 
 exports.Real = Real;

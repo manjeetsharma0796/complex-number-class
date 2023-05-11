@@ -1,7 +1,6 @@
 const {Real} = require('./real.js');
 const {Imaginary} = require('./imaginary.js');
 
-
 class Complex {
   #real
   #imaginary
@@ -12,35 +11,40 @@ class Complex {
   };
 
   add(other) {
-    const real = new Real(this.#real.value() + other.#real.value());
-    const imaginary = new Imaginary(this.#imaginary.value() + other.#imaginary.value());
+    const real = this.#real.add(other.#real);
+    const imaginary = this.#imaginary.add(other.#imaginary);
 
     return new Complex(real, imaginary);
   };
 
   subtract(other) {
-    const real = new Real(this.#real.value() - other.#real.value());
-    const imaginary = new Imaginary(this.#imaginary.value() - other.#imaginary.value());
+    const real = this.#real.subtract(other.#real);
+    const imaginary = this.#imaginary.subtract(other.#imaginary);
 
     return new Complex(real, imaginary);
   };
 
   multiply(other) {
-    const real = new Real((this.#real.value() * other.#real.value()) - (this.#imaginary.value() * other.#imaginary.value()));
-    const imaginary = new Imaginary((this.#real.value() * other.#imaginary.value()) + (this.#imaginary.value() * other.#real.value()));
+    const realWithReal = this.#real.multiply(other.#real) 
+    const imaginaryWithImaginary = this.#imaginary.multiplyImaginary(other.#imaginary);
+    const realWithImaginary = other.#imaginary.multiplyReal(this.#real); 
+    const imaginaryWithReal = this.#imaginary.multiplyReal(other.#real);
+
+    const real = realWithReal.add(imaginaryWithImaginary);
+    const imaginary = realWithImaginary.add(imaginaryWithReal);
 
     return new Complex(real, imaginary);
   }
 
   #decideSymbol() {
-    return this.#imaginary.value() < 0 ? '-' : '+';
+    return this.#imaginary.getImaginary() < 0 ? '-' : '+';
   }
 
   toString() {
-    const imaginaryAbsValue = Math.abs(this.#imaginary.value());
+    const imaginaryAbsValue = Math.abs(this.#imaginary.getImaginary());
     const symbol = this.#decideSymbol();
 
-    return `${this.#real.value()} ${symbol} ${imaginaryAbsValue}i`;
+    return `${this.#real.getReal()} ${symbol} ${imaginaryAbsValue}i`;
   };
 };
 
