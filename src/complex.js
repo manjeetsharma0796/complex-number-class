@@ -1,5 +1,5 @@
-const {Real} = require('./real.js');
-const {Imaginary} = require('./imaginary.js');
+const { Real } = require('./real.js');
+const { Imaginary } = require('./imaginary.js');
 
 class Complex {
   #real
@@ -25,9 +25,9 @@ class Complex {
   };
 
   multiply(other) {
-    const realWithReal = this.#real.multiply(other.#real) 
+    const realWithReal = this.#real.multiply(other.#real)
     const imaginaryWithImaginary = this.#imaginary.multiplyImaginary(other.#imaginary);
-    const realWithImaginary = other.#imaginary.multiplyReal(this.#real); 
+    const realWithImaginary = other.#imaginary.multiplyReal(this.#real);
     const imaginaryWithReal = this.#imaginary.multiplyReal(other.#real);
 
     const real = realWithReal.add(imaginaryWithImaginary);
@@ -36,13 +36,13 @@ class Complex {
     return new Complex(real, imaginary);
   }
 
-  #decideSymbol() {
+  #getSymbol() {
     return this.#imaginary.getImaginary() < 0 ? '-' : '+';
-  }
+  };
 
   toString() {
     const imaginaryAbsValue = Math.abs(this.#imaginary.getImaginary());
-    const symbol = this.#decideSymbol();
+    const symbol = this.#getSymbol();
 
     return `${this.#real.getReal()} ${symbol} ${imaginaryAbsValue}i`;
   };

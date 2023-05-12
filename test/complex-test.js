@@ -14,7 +14,7 @@ describe('complex', function() {
       strictEqual(num.toString(), '1 + 2i');
     });
 
-    it('Should display complex number with negative imaginary number', function() {
+    it('Should stringify negative imaginary number in format', function() {
       const real = new Real(1);
       const imaginary = new Imaginary(-2);
       const num = new Complex(real, imaginary);
